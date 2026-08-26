@@ -10,10 +10,22 @@ std::string formatarValor(double valor) {
 }
 }  // namespace
 
-SensorNivel::SensorNivel(std::string tagInicial, double valorInicial)
-    : tag(tagInicial), valor(valorInicial) {
+SensorNivel::SensorNivel(
+    std::string tagInicial,
+    double valorInicial,
+    std::string unidadeInicial
+)
+    : tag(tagInicial),
+      valor(valorInicial),
+      unidade(unidadeInicial) {
 }
 
 std::string SensorNivel::resumo() const {
-    return tag + ": " + formatarValor(valor);
+    std::string resultado = tag + ": " + formatarValor(valor);
+
+    if (!unidade.empty()) {
+        resultado += " " + unidade;
+    }
+
+    return resultado;
 }

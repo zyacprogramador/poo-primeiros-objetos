@@ -1,7 +1,18 @@
 class SensorNivel:
-    def __init__(self, tag: str, valor: float):
+    def __init__(
+        self,
+        tag: str,
+        valor: float,
+        unidade: str = ""
+    ):
         self.tag = tag
         self.valor = valor
+        self.unidade = unidade
 
     def resumo(self) -> str:
-        return f"{self.tag}: {self.valor:g}"
+        resultado = f"{self.tag}: {self.valor:g}"
+
+        if self.unidade:
+            resultado += f" {self.unidade}"
+
+        return resultado
