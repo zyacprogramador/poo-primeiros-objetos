@@ -2,8 +2,11 @@ from sensor_nivel import SensorNivel
 
 
 def main() -> None:
-    sensor = SensorNivel("LT-101", 42.5)
-    print(sensor.resumo())
+    nivel = SensorNivel("LT-101", 42.5, "%")
+    pressao = SensorNivel("PT-201", 2.7, "bar")
+
+    print(nivel.resumo())
+    print(pressao.resumo())
 
 
 if __name__ == "__main__":
